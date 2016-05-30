@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0150A4561CFBA7F200C6D35F /* AddDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */; };
+		0150A4581CFBCC3200C6D35F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150A4571CFBCC3200C6D35F /* Provider.swift */; };
 		0175C8A11CFB75EE0092E9B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8A01CFB75EE0092E9B3 /* AppDelegate.swift */; };
 		0175C8A31CFB75EE0092E9B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8A21CFB75EE0092E9B3 /* ViewController.swift */; };
 		0175C8A61CFB75EE0092E9B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175C8A41CFB75EE0092E9B3 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDrinkViewController.swift; sourceTree = "<group>"; };
+		0150A4571CFBCC3200C6D35F /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		0175C89D1CFB75EE0092E9B3 /* DrinkCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0175C8A01CFB75EE0092E9B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0175C8A21CFB75EE0092E9B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0150A4591CFBCD3700C6D35F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0175C8A21CFB75EE0092E9B3 /* ViewController.swift */,
+				0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		0175C8941CFB75EE0092E9B3 = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0175C8A01CFB75EE0092E9B3 /* AppDelegate.swift */,
-				0175C8A21CFB75EE0092E9B3 /* ViewController.swift */,
+				0150A4591CFBCD3700C6D35F /* ViewControllers */,
 				0175C8C71CFB78BD0092E9B3 /* CoreData */,
 				0175C8A41CFB75EE0092E9B3 /* Main.storyboard */,
 				0175C8A71CFB75EE0092E9B3 /* Assets.xcassets */,
@@ -83,7 +94,7 @@
 				0175C8AC1CFB75EE0092E9B3 /* Info.plist */,
 				0175C8CB1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift */,
 				0175C8CF1CFB99B90092E9B3 /* DrinkCell.swift */,
-				0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */,
+				0150A4571CFBCC3200C6D35F /* Provider.swift */,
 			);
 			path = DrinkCounter;
 			sourceTree = "<group>";
@@ -190,6 +201,7 @@
 				0175C8C31CFB78B90092E9B3 /* Drink.swift in Sources */,
 				0150A4561CFBA7F200C6D35F /* AddDrinkViewController.swift in Sources */,
 				0175C8C61CFB78B90092E9B3 /* Glass+CoreDataProperties.swift in Sources */,
+				0150A4581CFBCC3200C6D35F /* Provider.swift in Sources */,
 				0175C8CC1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift in Sources */,
 				0175C8C91CFB79420092E9B3 /* NSManagedObject+Additions.swift in Sources */,
 				0175C8B61CFB781C0092E9B3 /* CoreDataStack.swift in Sources */,

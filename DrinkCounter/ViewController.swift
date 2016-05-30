@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol Provided {
+    var provider: Provider? { get }
+    func receiveProvider(provider: Provider)
+}
+
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, Provided {
     
     struct Drink {
         let title: String
         let quantity: Int
     }
     
+    let provider: Provider? = Provider()
+    func receiveProvider(provider: Provider) {
+        // do nothing
+    }
     
     let cellIdentifier = "com.fbenaiteau.drinkCell"
     let data:Array<Drink> = [
@@ -28,7 +37,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let stack : CoreDataStack = CoreDataStack()
     //    let fetchResultsDelegate: CoreDataCollectionDataSource
     
     override func viewDidLoad() {
@@ -70,10 +78,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                           100)
     }
     
-    
-    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if  segue.identifier == "com.fbenaiteau.segue.addDrink" {
+            if let nav = segue.destinationViewController as? UINavigationController {
+                
+                guard let vc = nav.viewControllers.first as? Provided else {
+                    return
+                }
+                vc.receiveProvider(provider!)
+            }
+            
+        }
+    }
     
     // MARK: - Private
+    
     
     //    private func fetchTimeEntries() {
     //        fetchController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: coreDataStack.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
