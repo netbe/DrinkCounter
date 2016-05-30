@@ -1,25 +1,203 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="brh-Iv-dOp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="Tqn-8G-kUw">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="brh-Iv-dOp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ht-ad-89a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K03-RG-WvW" kind="relationship" relationship="rootViewController" id="xCU-xd-oTp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eak-lG-Ck0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="1047"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BOr-QO-bHN">
+            <objects>
+                <viewController id="K03-RG-WvW" customClass="ViewController" customModule="DrinkCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="mAJ-5l-OC6"/>
+                        <viewControllerLayoutGuide type="bottom" id="YLI-e6-R7S"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="0MB-jB-ueA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kXF-aE-102">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.95396351439790572" green="0.95396351439790572" blue="0.95396351439790572" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="8Jj-CL-QjG">
+                                    <size key="itemSize" width="312" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.fbenaiteau.drinkCell" id="Fdw-66-cM0" customClass="DrinkCell" customModule="DrinkCounter" customModuleProvider="target">
+                                        <rect key="frame" x="144" y="64" width="312" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="312" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9L4-WL-myz">
+                                                    <rect key="frame" x="210" y="63" width="94" height="29"/>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qah-pW-L0X" userLabel="quantityLabel">
+                                                    <rect key="frame" x="210" y="8" width="94" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMQ-oT-Cl5" userLabel="titleLabel">
+                                                    <rect key="frame" x="5" y="8" width="205" height="84"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="HMQ-oT-Cl5" firstAttribute="top" secondItem="Fdw-66-cM0" secondAttribute="topMargin" id="D8b-F9-FjJ"/>
+                                            <constraint firstItem="9L4-WL-myz" firstAttribute="top" secondItem="Qah-pW-L0X" secondAttribute="bottom" constant="5" id="Jc3-yD-GSN"/>
+                                            <constraint firstItem="Qah-pW-L0X" firstAttribute="trailing" secondItem="Fdw-66-cM0" secondAttribute="trailingMargin" id="SBP-U3-toT"/>
+                                            <constraint firstItem="9L4-WL-myz" firstAttribute="trailing" secondItem="Fdw-66-cM0" secondAttribute="trailingMargin" id="YbS-uH-HKl"/>
+                                            <constraint firstItem="Qah-pW-L0X" firstAttribute="top" secondItem="Fdw-66-cM0" secondAttribute="topMargin" id="bLm-a6-wvc"/>
+                                            <constraint firstItem="9L4-WL-myz" firstAttribute="bottom" secondItem="Fdw-66-cM0" secondAttribute="bottomMargin" id="c5b-eK-Xit"/>
+                                            <constraint firstItem="9L4-WL-myz" firstAttribute="leading" secondItem="HMQ-oT-Cl5" secondAttribute="trailing" id="pGV-zt-TM9"/>
+                                            <constraint firstItem="HMQ-oT-Cl5" firstAttribute="bottom" secondItem="Fdw-66-cM0" secondAttribute="bottomMargin" id="vGs-aA-gxW"/>
+                                            <constraint firstItem="Qah-pW-L0X" firstAttribute="leading" secondItem="HMQ-oT-Cl5" secondAttribute="trailing" id="x5U-l1-5L2"/>
+                                            <constraint firstItem="HMQ-oT-Cl5" firstAttribute="leading" secondItem="Fdw-66-cM0" secondAttribute="leading" constant="5" id="zlm-dC-LVb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="quantityLabel" destination="Qah-pW-L0X" id="GQ4-qw-gfR"/>
+                                            <outlet property="quantityStepper" destination="9L4-WL-myz" id="5WN-gw-1pd"/>
+                                            <outlet property="titleLabel" destination="HMQ-oT-Cl5" id="k4H-yw-0AK"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="K03-RG-WvW" id="wQ5-Fu-12K"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kXF-aE-102" firstAttribute="leading" secondItem="0MB-jB-ueA" secondAttribute="leading" id="46r-WN-ic6"/>
+                            <constraint firstItem="kXF-aE-102" firstAttribute="top" secondItem="0MB-jB-ueA" secondAttribute="top" id="RSS-rn-WqQ"/>
+                            <constraint firstItem="kXF-aE-102" firstAttribute="top" secondItem="mAJ-5l-OC6" secondAttribute="bottom" id="RnE-PF-UVg"/>
+                            <constraint firstItem="YLI-e6-R7S" firstAttribute="top" secondItem="kXF-aE-102" secondAttribute="bottom" id="XAI-8E-FTB"/>
+                            <constraint firstAttribute="trailing" secondItem="kXF-aE-102" secondAttribute="trailing" id="bHY-dL-lQp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RnE-PF-UVg"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="lWa-ZL-IbA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ARx-JB-mFm">
+                            <connections>
+                                <action selector="addDrink:" destination="K03-RG-WvW" id="zGR-X6-gfE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="kXF-aE-102" id="gAP-zF-Ivf"/>
+                        <segue destination="TGO-G4-V8q" kind="presentation" identifier="com.fbenaiteau.segue.addDrink" id="jmM-SV-Dtl"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DfU-hW-7XM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1056" y="1047"/>
+        </scene>
+        <!--Add a Drink-->
+        <scene sceneID="kj5-A6-Tkh">
+            <objects>
+                <viewController id="shx-m4-5nJ" customClass="AddDrinkViewController" customModule="DrinkCounter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vd8-TA-ddW"/>
+                        <viewControllerLayoutGuide type="bottom" id="yvH-Bk-TmZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ykr-sn-P7v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Drink's name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="C0j-iR-aPc">
+                                <rect key="frame" x="60" y="275" width="480" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="grz-L1-SuN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingChanged:" destination="shx-m4-5nJ" eventType="editingChanged" id="nBP-4w-1mV"/>
+                                    <action selector="textFieldPrimaryAction:" destination="shx-m4-5nJ" eventType="primaryActionTriggered" id="B83-1q-DML"/>
+                                    <outlet property="delegate" destination="shx-m4-5nJ" id="hHH-kl-E5q"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C0j-iR-aPc" firstAttribute="centerY" secondItem="Ykr-sn-P7v" secondAttribute="centerY" id="BzI-it-GF8"/>
+                            <constraint firstItem="C0j-iR-aPc" firstAttribute="centerX" secondItem="Ykr-sn-P7v" secondAttribute="centerX" id="eAN-jN-OCx"/>
+                            <constraint firstItem="C0j-iR-aPc" firstAttribute="width" secondItem="Ykr-sn-P7v" secondAttribute="width" multiplier="0.8" id="nGy-uN-SHT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Drink" id="lOD-gz-aNt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="j0w-Xl-EdK">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="shx-m4-5nJ" id="vhU-gY-IyE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4uz-nD-dNP">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="shx-m4-5nJ" id="YqX-7l-Aga"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="4uz-nD-dNP" id="epw-BX-Y8i"/>
+                        <outlet property="textField" destination="C0j-iR-aPc" id="wUd-2w-TAD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rh5-Ok-wQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2547" y="271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7X6-5T-y1E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TGO-G4-V8q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="onS-rt-e3c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="shx-m4-5nJ" kind="relationship" relationship="rootViewController" id="qB6-4U-rOk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5y-mF-u4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1767" y="279"/>
         </scene>
     </scenes>
 </document>

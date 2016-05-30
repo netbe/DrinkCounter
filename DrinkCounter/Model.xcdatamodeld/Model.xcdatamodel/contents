@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="Drink" representedClassName=".Drink" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="glasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Glass" inverseName="drink" inverseEntity="Glass" syncable="YES"/>
+    </entity>
+    <entity name="Glass" representedClassName=".Glass" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <relationship name="drink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Drink" inverseName="glasses" inverseEntity="Drink" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Drink" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Glass" positionX="-54" positionY="0" width="128" height="75"/>
+    </elements>
+</model>

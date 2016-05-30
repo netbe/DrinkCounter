@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0150A4561CFBA7F200C6D35F /* AddDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */; };
 		0175C8A11CFB75EE0092E9B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8A01CFB75EE0092E9B3 /* AppDelegate.swift */; };
 		0175C8A31CFB75EE0092E9B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8A21CFB75EE0092E9B3 /* ViewController.swift */; };
 		0175C8A61CFB75EE0092E9B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175C8A41CFB75EE0092E9B3 /* Main.storyboard */; };
 		0175C8A81CFB75EE0092E9B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0175C8A71CFB75EE0092E9B3 /* Assets.xcassets */; };
 		0175C8AB1CFB75EE0092E9B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175C8A91CFB75EE0092E9B3 /* LaunchScreen.storyboard */; };
+		0175C8B41CFB763C0092E9B3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8B21CFB763C0092E9B3 /* Model.xcdatamodeld */; };
+		0175C8B61CFB781C0092E9B3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8B51CFB781C0092E9B3 /* CoreDataStack.swift */; };
+		0175C8C31CFB78B90092E9B3 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8BF1CFB78B90092E9B3 /* Drink.swift */; };
+		0175C8C41CFB78B90092E9B3 /* Drink+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8C01CFB78B90092E9B3 /* Drink+CoreDataProperties.swift */; };
+		0175C8C51CFB78B90092E9B3 /* Glass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8C11CFB78B90092E9B3 /* Glass.swift */; };
+		0175C8C61CFB78B90092E9B3 /* Glass+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8C21CFB78B90092E9B3 /* Glass+CoreDataProperties.swift */; };
+		0175C8C91CFB79420092E9B3 /* NSManagedObject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8C81CFB79420092E9B3 /* NSManagedObject+Additions.swift */; };
+		0175C8CC1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8CB1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift */; };
+		0175C8D01CFB99B90092E9B3 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175C8CF1CFB99B90092E9B3 /* DrinkCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDrinkViewController.swift; sourceTree = "<group>"; };
 		0175C89D1CFB75EE0092E9B3 /* DrinkCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0175C8A01CFB75EE0092E9B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0175C8A21CFB75EE0092E9B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,15 @@
 		0175C8A71CFB75EE0092E9B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0175C8AA1CFB75EE0092E9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0175C8AC1CFB75EE0092E9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0175C8B31CFB763C0092E9B3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0175C8B51CFB781C0092E9B3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0175C8BF1CFB78B90092E9B3 /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		0175C8C01CFB78B90092E9B3 /* Drink+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drink+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0175C8C11CFB78B90092E9B3 /* Glass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glass.swift; sourceTree = "<group>"; };
+		0175C8C21CFB78B90092E9B3 /* Glass+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Glass+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0175C8C81CFB79420092E9B3 /* NSManagedObject+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Additions.swift"; sourceTree = "<group>"; };
+		0175C8CB1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionDataSource.swift; sourceTree = "<group>"; };
+		0175C8CF1CFB99B90092E9B3 /* DrinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +76,38 @@
 			children = (
 				0175C8A01CFB75EE0092E9B3 /* AppDelegate.swift */,
 				0175C8A21CFB75EE0092E9B3 /* ViewController.swift */,
+				0175C8C71CFB78BD0092E9B3 /* CoreData */,
 				0175C8A41CFB75EE0092E9B3 /* Main.storyboard */,
 				0175C8A71CFB75EE0092E9B3 /* Assets.xcassets */,
 				0175C8A91CFB75EE0092E9B3 /* LaunchScreen.storyboard */,
 				0175C8AC1CFB75EE0092E9B3 /* Info.plist */,
+				0175C8CB1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift */,
+				0175C8CF1CFB99B90092E9B3 /* DrinkCell.swift */,
+				0150A4551CFBA7F200C6D35F /* AddDrinkViewController.swift */,
 			);
 			path = DrinkCounter;
+			sourceTree = "<group>";
+		};
+		0175C8C71CFB78BD0092E9B3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0175C8C81CFB79420092E9B3 /* NSManagedObject+Additions.swift */,
+				0175C8B51CFB781C0092E9B3 /* CoreDataStack.swift */,
+				0175C8B21CFB763C0092E9B3 /* Model.xcdatamodeld */,
+				0175C8CA1CFB79490092E9B3 /* Model */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		0175C8CA1CFB79490092E9B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0175C8BF1CFB78B90092E9B3 /* Drink.swift */,
+				0175C8C01CFB78B90092E9B3 /* Drink+CoreDataProperties.swift */,
+				0175C8C11CFB78B90092E9B3 /* Glass.swift */,
+				0175C8C21CFB78B90092E9B3 /* Glass+CoreDataProperties.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +181,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0175C8C51CFB78B90092E9B3 /* Glass.swift in Sources */,
+				0175C8C41CFB78B90092E9B3 /* Drink+CoreDataProperties.swift in Sources */,
 				0175C8A31CFB75EE0092E9B3 /* ViewController.swift in Sources */,
+				0175C8D01CFB99B90092E9B3 /* DrinkCell.swift in Sources */,
 				0175C8A11CFB75EE0092E9B3 /* AppDelegate.swift in Sources */,
+				0175C8B41CFB763C0092E9B3 /* Model.xcdatamodeld in Sources */,
+				0175C8C31CFB78B90092E9B3 /* Drink.swift in Sources */,
+				0150A4561CFBA7F200C6D35F /* AddDrinkViewController.swift in Sources */,
+				0175C8C61CFB78B90092E9B3 /* Glass+CoreDataProperties.swift in Sources */,
+				0175C8CC1CFB7DB50092E9B3 /* CoreDataCollectionDataSource.swift in Sources */,
+				0175C8C91CFB79420092E9B3 /* NSManagedObject+Additions.swift in Sources */,
+				0175C8B61CFB781C0092E9B3 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +344,22 @@
 				0175C8B11CFB75EE0092E9B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0175C8B21CFB763C0092E9B3 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0175C8B31CFB763C0092E9B3 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0175C8B31CFB763C0092E9B3 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0175C8951CFB75EE0092E9B3 /* Project object */;
 }
