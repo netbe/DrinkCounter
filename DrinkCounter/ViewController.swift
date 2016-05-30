@@ -58,10 +58,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! DrinkCell
         if let drink = dataSource?.fetchController.objectAtIndexPath(indexPath) as? Drink {
             cell.titleLabel.text = drink.name
-            let quantity = (drink.glasses != nil) ? drink.glasses!.count : 0
-            cell.quantityLabel.text = "\(quantity)"
+            cell.quantity = (drink.glasses != nil) ? drink.glasses!.count : 0
+            cell.quantityIncrease = { newValue in
+                
+                self.provider?.addGlass(drink, completion: { (success) in
+                    // do nothing
+                })
+            }
+            
         }
-        
         return cell
     }
     
@@ -82,30 +87,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 }
                 vc.receiveProvider(provider!)
             }
-            
         }
     }
     
-    // MARK: - Private
-    
-    
-    //    private func fetchTimeEntries() {
-    //        fetchController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: coreDataStack.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-    //        fetchController?.delegate = self
-    //        do {
-    //            try fetchController?.performFetch()
-    //        }catch let error {
-    //            print(error)
-    //        }
-    //    }
-    //
-    //    private func objectAtIndexPath(indexPath:NSIndexPath) -> TimeEntry? {
-    //        if let timeEntries = fetchController?.fetchedObjects,
-    //            let timeEntry = timeEntries[indexPath.row] as? TimeEntry {
-    //            return timeEntry
-    //        }
-    //        return nil
-    //    }
-    
 }
-

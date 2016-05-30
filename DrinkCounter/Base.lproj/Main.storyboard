@@ -54,40 +54,49 @@
                                             <rect key="frame" x="0.0" y="0.0" width="312" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9L4-WL-myz">
-                                                    <rect key="frame" x="210" y="63" width="94" height="29"/>
-                                                </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qah-pW-L0X" userLabel="quantityLabel">
-                                                    <rect key="frame" x="210" y="8" width="94" height="50"/>
+                                                    <rect key="frame" x="210" y="8" width="94" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMQ-oT-Cl5" userLabel="titleLabel">
                                                     <rect key="frame" x="5" y="8" width="205" height="84"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deW-np-ypj">
+                                                    <rect key="frame" x="210" y="42" width="94" height="50"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="0.78792664007092195" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="65a-qq-TeI"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="Add"/>
+                                                    <connections>
+                                                        <action selector="addButtonTapped:" destination="Fdw-66-cM0" eventType="touchUpInside" id="HET-xp-Quy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="HMQ-oT-Cl5" firstAttribute="top" secondItem="Fdw-66-cM0" secondAttribute="topMargin" id="D8b-F9-FjJ"/>
-                                            <constraint firstItem="9L4-WL-myz" firstAttribute="top" secondItem="Qah-pW-L0X" secondAttribute="bottom" constant="5" id="Jc3-yD-GSN"/>
+                                            <constraint firstAttribute="trailing" secondItem="deW-np-ypj" secondAttribute="trailing" constant="8" id="EHE-ZY-Il6"/>
+                                            <constraint firstItem="deW-np-ypj" firstAttribute="bottom" secondItem="HMQ-oT-Cl5" secondAttribute="bottom" id="J3G-hh-DL5"/>
                                             <constraint firstItem="Qah-pW-L0X" firstAttribute="trailing" secondItem="Fdw-66-cM0" secondAttribute="trailingMargin" id="SBP-U3-toT"/>
-                                            <constraint firstItem="9L4-WL-myz" firstAttribute="trailing" secondItem="Fdw-66-cM0" secondAttribute="trailingMargin" id="YbS-uH-HKl"/>
                                             <constraint firstItem="Qah-pW-L0X" firstAttribute="top" secondItem="Fdw-66-cM0" secondAttribute="topMargin" id="bLm-a6-wvc"/>
-                                            <constraint firstItem="9L4-WL-myz" firstAttribute="bottom" secondItem="Fdw-66-cM0" secondAttribute="bottomMargin" id="c5b-eK-Xit"/>
-                                            <constraint firstItem="9L4-WL-myz" firstAttribute="leading" secondItem="HMQ-oT-Cl5" secondAttribute="trailing" id="pGV-zt-TM9"/>
+                                            <constraint firstItem="deW-np-ypj" firstAttribute="leading" secondItem="Qah-pW-L0X" secondAttribute="leading" id="df4-ui-hIO"/>
+                                            <constraint firstItem="deW-np-ypj" firstAttribute="top" secondItem="Qah-pW-L0X" secondAttribute="bottom" constant="4" id="lOg-JD-Si5"/>
                                             <constraint firstItem="HMQ-oT-Cl5" firstAttribute="bottom" secondItem="Fdw-66-cM0" secondAttribute="bottomMargin" id="vGs-aA-gxW"/>
+                                            <constraint firstItem="deW-np-ypj" firstAttribute="leading" secondItem="Qah-pW-L0X" secondAttribute="trailing" constant="-94" id="wZV-Eu-ojE"/>
                                             <constraint firstItem="Qah-pW-L0X" firstAttribute="leading" secondItem="HMQ-oT-Cl5" secondAttribute="trailing" id="x5U-l1-5L2"/>
                                             <constraint firstItem="HMQ-oT-Cl5" firstAttribute="leading" secondItem="Fdw-66-cM0" secondAttribute="leading" constant="5" id="zlm-dC-LVb"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="quantityLabel" destination="Qah-pW-L0X" id="GQ4-qw-gfR"/>
-                                            <outlet property="quantityStepper" destination="9L4-WL-myz" id="5WN-gw-1pd"/>
                                             <outlet property="titleLabel" destination="HMQ-oT-Cl5" id="k4H-yw-0AK"/>
                                         </connections>
                                     </collectionViewCell>
