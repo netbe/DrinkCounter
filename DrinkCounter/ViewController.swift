@@ -15,10 +15,7 @@ protocol Provided {
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, Provided {
     
-    struct Drink {
-        let title: String
-        let quantity: Int
-    }
+    var dataSource:CoreDataCollectionDataSource?
     
     let provider: Provider? = Provider()
     func receiveProvider(provider: Provider) {
@@ -26,47 +23,44 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     let cellIdentifier = "com.fbenaiteau.drinkCell"
-    let data:Array<Drink> = [
-        Drink.init(title: "Caipirina", quantity: 2),
-        Drink.init(title: "Beer", quantity: 1),
-        Drink.init(title: "Red Wine", quantity: 1),
-        Drink.init(title: "Pina Colada", quantity: 2),
-        Drink.init(title: "Gordons", quantity: 2),
-        Drink.init(title: "Rum shot", quantity: 1)]
+//    let data:Array<Drink> = [
+//        Drink.init(title: "Caipirina", quantity: 2),
+//        Drink.init(title: "Beer", quantity: 1),
+//        Drink.init(title: "Red Wine", quantity: 1),
+//        Drink.init(title: "Pina Colada", quantity: 2),
+//        Drink.init(title: "Gordons", quantity: 2),
+//        Drink.init(title: "Rum shot", quantity: 1)]
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    //    let fetchResultsDelegate: CoreDataCollectionDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Today's Drinks"
         // fetch data
-        
+        dataSource = CoreDataCollectionDataSource(fetchController: (provider?.fetchDrinksController())!, collectionView: collectionView)
+        dataSource?.refresh()
+
     }
 
     @IBAction func addDrink(sender: AnyObject) {
         performSegueWithIdentifier("com.fbenaiteau.segue.addDrink", sender: self)
     }
     
-    func objectsCount() -> Int {
-        //        guard let count = fetchController?.fetchedObjects?.count else { return 0 }
-        //        return count
-        return data.count
-    }
     
     // MARK: - UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return objectsCount()
+        return dataSource!.objectsCount()
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! DrinkCell
-        let drink = data[indexPath.row]
-        cell.titleLabel.text = drink.title
-        cell.quantityLabel.text = "\(drink.quantity)"
+        if let drink = dataSource?.fetchController.objectAtIndexPath(indexPath) as? Drink {
+            cell.titleLabel.text = drink.name
+            let quantity = (drink.glasses != nil) ? drink.glasses!.count : 0
+            cell.quantityLabel.text = "\(quantity)"
+        }
         
         return cell
     }

@@ -21,6 +21,8 @@ class Drink: NSManagedObject {
     }
     
     class func fetchAllRequest() -> NSFetchRequest {
-        return NSFetchRequest(entityName: self.entityName())
+        let request  = NSFetchRequest(entityName: self.entityName())
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        return request
     }
 }

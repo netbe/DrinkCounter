@@ -10,35 +10,31 @@ import UIKit
 import Foundation
 import CoreData
 
-class DrinkDataSource: NSObject {
-    
-}
-
 class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate {
-    let cellIdentifier = "com.fbenaiteau.drinkEntryCell"
-    let coreDataStack: CoreDataStack
     
-    let fetchRequest: NSFetchRequest
-    var fetchController: NSFetchedResultsController?
-    var collectionView: UICollectionView?
+    let fetchController: NSFetchedResultsController
+    let collectionView: UICollectionView
     
-    init(coreDataStack:CoreDataStack, fetchRequest: NSFetchRequest) {
-        self.coreDataStack = coreDataStack
-        self.fetchRequest = fetchRequest
+    init(fetchController:NSFetchedResultsController, collectionView: UICollectionView) {
+        self.collectionView = collectionView
+        self.fetchController = fetchController
         super.init()
+        fetchController.delegate = self
+    }
+    
+    func refresh() {
+        do {
+            try fetchController.performFetch()
+        }catch let error {
+            print(error)
+        }
     }
     
     func objectsCount() -> Int {
-        guard let count = fetchController?.fetchedObjects?.count else { return 0 }
+        guard let count = fetchController.fetchedObjects?.count else { return 0 }
         return count
     }
     
-    func bindCollectionView(collectionView:UICollectionView) {
-        self.collectionView = collectionView
-        collectionView.backgroundColor = UIColor.whiteColor()
-    }
-    
-  
     // MARK: - NSFetchedResultsControllerDelegate
     // from https://gist.github.com/AppsTitude/ce072627c61ea3999b8d
     // First initialise an array of NSBlockOperations:
@@ -54,7 +50,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.insertItemsAtIndexPaths([newIndexPath!])
+                        this.collectionView.insertItemsAtIndexPaths([newIndexPath!])
                     }
                     })
             )
@@ -64,7 +60,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.reloadItemsAtIndexPaths([indexPath!])
+                        this.collectionView.reloadItemsAtIndexPaths([indexPath!])
                     }
                     })
             )
@@ -75,7 +71,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
+                        this.collectionView.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
                     }
                     })
             )
@@ -86,7 +82,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.deleteItemsAtIndexPaths([indexPath!])
+                        this.collectionView.deleteItemsAtIndexPaths([indexPath!])
                     }
                     })
             )
@@ -102,7 +98,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.insertSections(NSIndexSet(index: sectionIndex))
+                        this.collectionView.insertSections(NSIndexSet(index: sectionIndex))
                     }
                     })
             )
@@ -112,7 +108,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.reloadSections(NSIndexSet(index: sectionIndex))
+                        this.collectionView.reloadSections(NSIndexSet(index: sectionIndex))
                     }
                     })
             )
@@ -123,7 +119,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
             blockOperations.append(
                 NSBlockOperation(block: { [weak self] in
                     if let this = self {
-                        this.collectionView!.deleteSections(NSIndexSet(index: sectionIndex))
+                        this.collectionView.deleteSections(NSIndexSet(index: sectionIndex))
                     }
                     })
             )
@@ -132,7 +128,7 @@ class CoreDataCollectionDataSource: NSObject, NSFetchedResultsControllerDelegate
     
     // And finally, in the did controller did change content method:
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        collectionView!.performBatchUpdates({ () -> Void in
+        collectionView.performBatchUpdates({ () -> Void in
             for operation: NSBlockOperation in self.blockOperations {
                 operation.start()
             }

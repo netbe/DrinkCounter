@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class Provider: NSObject {
     let stack : CoreDataStack = CoreDataStack()
@@ -20,6 +21,9 @@ class Provider: NSObject {
             var success: Bool
             defer {
                 dispatch_async(dispatch_get_main_queue(), {
+                    if success {
+                        self.stack.saveContext()
+                    }
                     completionBlock(success:success)
                 })
             }
@@ -37,6 +41,10 @@ class Provider: NSObject {
         }
     }
     
-    
+    func fetchDrinksController() -> NSFetchedResultsController {
+        let fetchController = NSFetchedResultsController(fetchRequest: Drink.fetchAllRequest(), managedObjectContext: stack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchController
+    }
+   
     
 }
