@@ -23,13 +23,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     let cellIdentifier = "com.fbenaiteau.drinkCell"
-//    let data:Array<Drink> = [
-//        Drink.init(title: "Caipirina", quantity: 2),
-//        Drink.init(title: "Beer", quantity: 1),
-//        Drink.init(title: "Red Wine", quantity: 1),
-//        Drink.init(title: "Pina Colada", quantity: 2),
-//        Drink.init(title: "Gordons", quantity: 2),
-//        Drink.init(title: "Rum shot", quantity: 1)]
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -78,6 +71,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     // MARK: - Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if  segue.identifier == "com.fbenaiteau.segue.addDrink" {
             if let nav = segue.destinationViewController as? UINavigationController {

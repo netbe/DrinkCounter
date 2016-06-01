@@ -23,6 +23,7 @@ class Drink: NSManagedObject {
     class func fetchAllRequest() -> NSFetchRequest {
         let request  = NSFetchRequest(entityName: self.entityName())
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        request.predicate = NSPredicate(format: "date > %@", NSDate().day())
         return request
     }
 }
