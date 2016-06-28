@@ -42,16 +42,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     // MARK: - UICollectionViewDataSource
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        guard let sectionCount = dataSource!.fetchController.sections?.count else { return 0 }
+        return sectionCount
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource!.objectsCount()
+        guard let itemCount = dataSource!.fetchController.sections?[section].numberOfObjects else { return 0 }
+        return itemCount
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! DrinkCell
         if let drink = dataSource?.fetchController.objectAtIndexPath(indexPath) as? Drink {
             cell.titleLabel.text = drink.name
-            cell.quantity = (drink.glasses != nil) ? drink.glasses!.count : 0
+            cell.quantity = drink.todayGlassesCount() //(drink.glasses != nil) ? drink.glasses!.count : 0
             cell.quantityIncrease = { newValue in
                 
                 self.provider?.addGlass(drink, completion: { (success) in

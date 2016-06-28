@@ -12,6 +12,16 @@ import CoreData
 
 class Glass: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
+    class func fetchAllRequest() -> NSFetchRequest {
+        let request  = NSFetchRequest(entityName: self.entityName())
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        request.predicate = NSPredicate(format: "date > %@", NSDate().day())
+        return request
+    }
+    
+    var day:NSDate {
+        return (date?.day())!
+    }
 
+    
 }
